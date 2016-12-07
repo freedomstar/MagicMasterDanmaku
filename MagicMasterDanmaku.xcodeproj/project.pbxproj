@@ -10,12 +10,11 @@
 		395C3DA91DD8A85C00B37035 /* MagicMasterDanmaku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395C3D9F1DD8A85C00B37035 /* MagicMasterDanmaku.framework */; };
 		395C3DAE1DD8A85C00B37035 /* MagicMasterDanmakuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C3DAD1DD8A85C00B37035 /* MagicMasterDanmakuTests.swift */; };
 		395C3DB01DD8A85C00B37035 /* MagicMasterDanmaku.h in Headers */ = {isa = PBXBuildFile; fileRef = 395C3DA21DD8A85C00B37035 /* MagicMasterDanmaku.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		395C3DBC1DD8A88700B37035 /* danmakuModle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C3DB91DD8A88700B37035 /* danmakuModle.swift */; };
 		395C3DBD1DD8A88700B37035 /* MagicMasterDanmaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C3DBA1DD8A88700B37035 /* MagicMasterDanmaku.swift */; };
 		395C3DBE1DD8A88700B37035 /* parseXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C3DBB1DD8A88700B37035 /* parseXML.swift */; };
-		395C3DBF1DD8A8E000B37035 /* danmakuModle.swift in Headers */ = {isa = PBXBuildFile; fileRef = 395C3DB91DD8A88700B37035 /* danmakuModle.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		395C3DC01DD8A8E000B37035 /* MagicMasterDanmaku.swift in Headers */ = {isa = PBXBuildFile; fileRef = 395C3DBA1DD8A88700B37035 /* MagicMasterDanmaku.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		395C3DC11DD8A8E000B37035 /* parseXML.swift in Headers */ = {isa = PBXBuildFile; fileRef = 395C3DBB1DD8A88700B37035 /* parseXML.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		39DE37A81DF6DCD900E7F85B /* danmakuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DE37A71DF6DCD900E7F85B /* danmakuModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +34,9 @@
 		395C3DA81DD8A85C00B37035 /* MagicMasterDanmakuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicMasterDanmakuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		395C3DAD1DD8A85C00B37035 /* MagicMasterDanmakuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicMasterDanmakuTests.swift; sourceTree = "<group>"; };
 		395C3DAF1DD8A85C00B37035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		395C3DB91DD8A88700B37035 /* danmakuModle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = danmakuModle.swift; sourceTree = "<group>"; };
 		395C3DBA1DD8A88700B37035 /* MagicMasterDanmaku.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicMasterDanmaku.swift; sourceTree = "<group>"; };
 		395C3DBB1DD8A88700B37035 /* parseXML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseXML.swift; sourceTree = "<group>"; };
+		39DE37A71DF6DCD900E7F85B /* danmakuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = danmakuModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +79,11 @@
 		395C3DA11DD8A85C00B37035 /* MagicMasterDanmaku */ = {
 			isa = PBXGroup;
 			children = (
-				395C3DB91DD8A88700B37035 /* danmakuModle.swift */,
 				395C3DBA1DD8A88700B37035 /* MagicMasterDanmaku.swift */,
 				395C3DBB1DD8A88700B37035 /* parseXML.swift */,
 				395C3DA21DD8A85C00B37035 /* MagicMasterDanmaku.h */,
 				395C3DA31DD8A85C00B37035 /* Info.plist */,
+				39DE37A71DF6DCD900E7F85B /* danmakuModel.swift */,
 			);
 			path = MagicMasterDanmaku;
 			sourceTree = "<group>";
@@ -106,7 +105,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				395C3DB01DD8A85C00B37035 /* MagicMasterDanmaku.h in Headers */,
-				395C3DBF1DD8A8E000B37035 /* danmakuModle.swift in Headers */,
 				395C3DC01DD8A8E000B37035 /* MagicMasterDanmaku.swift in Headers */,
 				395C3DC11DD8A8E000B37035 /* parseXML.swift in Headers */,
 			);
@@ -214,9 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				395C3DBC1DD8A88700B37035 /* danmakuModle.swift in Sources */,
 				395C3DBD1DD8A88700B37035 /* MagicMasterDanmaku.swift in Sources */,
 				395C3DBE1DD8A88700B37035 /* parseXML.swift in Sources */,
+				39DE37A81DF6DCD900E7F85B /* danmakuModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

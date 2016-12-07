@@ -13,7 +13,7 @@ class parseXML: NSObject,XMLParserDelegate
 {
     var parser:XMLParser?
     var count:Int = 0
-    var danmakuList:[danmakuModle]?
+    var danmakuList:[danmakuModel]?
     var isdanmaku:Bool=false
     
     
@@ -38,7 +38,7 @@ class parseXML: NSObject,XMLParserDelegate
         parser?.parse()
     }
 
-    public func parserXML() ->[danmakuModle]
+    public func parserXML() ->[danmakuModel]
     {
         danmakuList?.sort(by: { (danmaku1, danmaku2) -> Bool in
            return  danmaku1.time!<danmaku2.time!
@@ -65,7 +65,7 @@ class parseXML: NSObject,XMLParserDelegate
         let str:String! = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         if isdanmaku==true && str != ""
         {
-            let modle:danmakuModle=danmakuModle.init(attributes: attributeString!, content: str)
+            let modle:danmakuModel=danmakuModel.init(attributes: attributeString!, content: str)
             danmakuList?.append(modle)
         }
     }

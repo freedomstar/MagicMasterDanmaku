@@ -26,22 +26,24 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
     public var danmakuPoolMaxSize:Int?=50
     public var delegate : MagicMasterDanmakudelegate?
     public var maxDanmakuCount:Int?=30
+    var queue = DispatchQueue(label: "MagicMasterDanmakuQueue")
     var _isFire:Bool=false
     var ispause:Bool=false
     var parseXmlManager:parseXML?
     var danmakuPool:[UILabel]=[]
     var firedanmakulist:[UILabel]=[]
     var useCount:Int?=0
-    var danmakuList:[danmakuModle]?
+    var danmakuList:[danmakuModel]?
     var timer:Timer?
     var lasttime:Int? = -1
     var playTime:Int?=0
     var lastdanmakuTrackCount:Int? = -1
     var lastindex:Int? = 0
     var lastViewWidth:CGFloat? = 0
-    var danmakuTrackCount:Int? = 0
-    let queue = DispatchQueue(label: "MagicMasterDanmakuQueue")
-    var randomTrackArray:[Int]?
+    var normalTrackCount:Int? = 0
+    var normalTrackArray:[Int]?
+    var topTrackCount:Int? = 0
+    var topTrackArray:[Int]?
     
     
     
@@ -65,7 +67,8 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
     {
         super.init(nibName: nil, bundle: nil)
         danmakuList = []
-        randomTrackArray=[]
+        topTrackArray=[]
+        normalTrackArray=[]
         queue.async
             {
                 [weak self]  in
@@ -79,7 +82,39 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
     {
         super.init(nibName: nil, bundle: nil)
         danmakuList = []
-        randomTrackArray=[]
+        topTrackArray=[]
+        normalTrackArray=[]
+        queue.async
+            {
+                [weak self]  in
+                self?.parseXmlManager=parseXML.init(UrlString: UrlString)
+                self?.danmakuList = self?.parseXmlManager?.parserXML()
+        }
+    }
+    
+    public  init(Url:URL,Queue:DispatchQueue)
+    {
+        super.init(nibName: nil, bundle: nil)
+        danmakuList = []
+        topTrackArray=[]
+        normalTrackArray=[]
+        queue=Queue
+        queue.async
+            {
+                [weak self]  in
+                self?.parseXmlManager=parseXML.init(Url: Url)
+                self?.danmakuList = self?.parseXmlManager?.parserXML()
+        }
+    }
+    
+    
+    public  init(UrlString:String,Queue:DispatchQueue)
+    {
+        super.init(nibName: nil, bundle: nil)
+        danmakuList = []
+        topTrackArray=[]
+        normalTrackArray=[]
+        queue=Queue
         queue.async
             {
                 [weak self]  in
@@ -94,7 +129,7 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
         NotificationCenter.default.addObserver(self, selector: #selector(self.setUp(notification:)), name: NSNotification.Name.init(rawValue: "ParserXMLFinshed"), object: nil)
         timer=Timer.init(timeInterval: 1, target: self, selector: #selector(self.updateDanmaku),userInfo: nil,repeats: true)
         RunLoop.main.add(timer!, forMode: RunLoopMode.defaultRunLoopMode)
-        danmakuTrackCount = Int(self.view.frame.height/21+2)
+        normalTrackCount = Int(self.view.frame.height/21+2)
     }
     
     
@@ -119,12 +154,12 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
         if ispause==false && _isFire == true
         {
             playTime=self.delegate?.getPlayTime()
-            if lastdanmakuTrackCount! == (randomTrackArray?.count)! && playTime!%3==0
+            if lastdanmakuTrackCount! == (normalTrackArray?.count)! && playTime!%3==0
             {
-                randomTrackArray?.removeAll()
-                for i in 0...danmakuTrackCount!-3
+                normalTrackArray?.removeAll()
+                for i in 0...normalTrackCount!-3
                 {
-                    randomTrackArray?.append(i)
+                    normalTrackArray?.append(i)
                 }
             }
             if playTime != lasttime! && (danmakuList?.count)!>0
@@ -137,7 +172,7 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
                 {
                     if firedanmakulist.count<maxDanmakuCount!
                     {
-                        let model:danmakuModle = danmakuList![i]
+                        let model:danmakuModel = danmakuList![i]
                         if(playTime == model.time)
                         {
                             setUpDanmaku(model: model)
@@ -157,17 +192,17 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
             if (danmakuList?.count)! > 0
             {
                 self.lasttime=playTime
-                lastdanmakuTrackCount = (randomTrackArray?.count)!
+                lastdanmakuTrackCount = (normalTrackArray?.count)!
             }
         }
     }
     
-    func setUpDanmaku(model:danmakuModle)
+    func setUpDanmaku(model:danmakuModel)
     {
         if lastViewWidth != self.view.frame.width
         {
-            danmakuTrackCount = Int(self.view.frame.height/21+2)
-            randomTrackArray?.removeAll()
+            normalTrackCount = Int(self.view.frame.height/21+2)
+            normalTrackArray?.removeAll()
             lastViewWidth = self.view.frame.width
         }
         let Danmaku:UILabel = getPoolDanmaku()
@@ -218,7 +253,12 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
     
     func fireDanmaku(Danmaku:UILabel)
     {
-        let height = Int(Danmaku.frame.height)*randomMan()
+        normalDanmaku(Danmaku: Danmaku)
+    }
+    
+    func normalDanmaku(Danmaku:UILabel)
+    {
+        let height = Int(Danmaku.frame.height)*normalTrack()
         self.view.addSubview(Danmaku)
         let anim:CABasicAnimation=CABasicAnimation.init(keyPath: "position")
         anim.fromValue=NSValue.init(cgPoint: CGPoint.init(x: UIScreen.main.bounds.width+(Danmaku.frame.width/2), y: CGFloat(height)+(Danmaku.frame.height/2)))
@@ -229,19 +269,37 @@ public class MagicMasterDanmaku: UIViewController,CAAnimationDelegate
         Danmaku.layer.add(anim, forKey: "position")
     }
     
+    func topDanmaku(Danmaku:UILabel)
+    {
+        let height = Int(Danmaku.frame.height)*normalTrack()
+        self.view.addSubview(Danmaku)
+        let anim:CABasicAnimation=CABasicAnimation.init(keyPath: "position")
+        anim.fromValue=NSValue.init(cgPoint: CGPoint.init(x: UIScreen.main.bounds.width+(Danmaku.frame.width/2), y: CGFloat(height)+(Danmaku.frame.height/2)))
+        anim.toValue=NSValue.init(cgPoint: CGPoint.init(x: -Danmaku.frame.size.width-5, y: CGFloat(height)+(Danmaku.frame.height/2)))
+        anim.duration = danmakuSpeed!;
+        anim.fillMode=kCAFillModeForwards;
+        anim.delegate=self
+        Danmaku.layer.add(anim, forKey: "position")
+    }
+    
+    func topTrack() -> Int!
+    {
+        return 7
+    }
 
-    func randomMan() -> Int! {
-        if (randomTrackArray?.count)! > 0
+    func normalTrack() -> Int!
+    {
+        if (normalTrackArray?.count)! > 0
         {
-            return randomTrackArray?.removeFirst()
+            return normalTrackArray?.removeFirst()
         }
         else
         {
-            for i in 0...danmakuTrackCount!-3
+            for i in 0...normalTrackCount!-3
             {
-                randomTrackArray?.append(i)
+                normalTrackArray?.append(i)
             }
-            return randomTrackArray?.removeFirst()
+            return normalTrackArray?.removeFirst()
         }
     }
 

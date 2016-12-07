@@ -14,8 +14,8 @@
 		392AB9D81DF166E000C1038D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392AB9D61DF166E000C1038D /* LaunchScreen.storyboard */; };
 		392AB9E31DF166E000C1038D /* MagicMasterDanmakuDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AB9E21DF166E000C1038D /* MagicMasterDanmakuDemoTests.swift */; };
 		392AB9EE1DF166E000C1038D /* MagicMasterDanmakuDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AB9ED1DF166E000C1038D /* MagicMasterDanmakuDemoUITests.swift */; };
-		392ABA041DF1671B00C1038D /* MagicMasterDanmaku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392ABA011DF166FC00C1038D /* MagicMasterDanmaku.framework */; };
-		392ABA051DF1671B00C1038D /* MagicMasterDanmaku.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 392ABA011DF166FC00C1038D /* MagicMasterDanmaku.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		39DE37B31DF7B6FA00E7F85B /* MagicMasterDanmaku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DE37B01DF7B6ED00E7F85B /* MagicMasterDanmaku.framework */; };
+		39DE37B41DF7B6FA00E7F85B /* MagicMasterDanmaku.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39DE37B01DF7B6ED00E7F85B /* MagicMasterDanmaku.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,23 +33,23 @@
 			remoteGlobalIDString = 392AB9C91DF166DF00C1038D;
 			remoteInfo = MagicMasterDanmakuDemo;
 		};
-		392ABA001DF166FC00C1038D /* PBXContainerItemProxy */ = {
+		39DE37AF1DF7B6ED00E7F85B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 392AB9FB1DF166FC00C1038D /* MagicMasterDanmaku.xcodeproj */;
+			containerPortal = 39DE37AA1DF7B6ED00E7F85B /* MagicMasterDanmaku.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 395C3D9F1DD8A85C00B37035;
 			remoteInfo = MagicMasterDanmaku;
 		};
-		392ABA021DF166FC00C1038D /* PBXContainerItemProxy */ = {
+		39DE37B11DF7B6ED00E7F85B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 392AB9FB1DF166FC00C1038D /* MagicMasterDanmaku.xcodeproj */;
+			containerPortal = 39DE37AA1DF7B6ED00E7F85B /* MagicMasterDanmaku.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 395C3DA81DD8A85C00B37035;
 			remoteInfo = MagicMasterDanmakuTests;
 		};
-		392ABA061DF1671B00C1038D /* PBXContainerItemProxy */ = {
+		39DE37B51DF7B6FA00E7F85B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 392AB9FB1DF166FC00C1038D /* MagicMasterDanmaku.xcodeproj */;
+			containerPortal = 39DE37AA1DF7B6ED00E7F85B /* MagicMasterDanmaku.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 395C3D9E1DD8A85C00B37035;
 			remoteInfo = MagicMasterDanmaku;
@@ -63,7 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				392ABA051DF1671B00C1038D /* MagicMasterDanmaku.framework in Embed Frameworks */,
+				39DE37B41DF7B6FA00E7F85B /* MagicMasterDanmaku.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +84,7 @@
 		392AB9E91DF166E000C1038D /* MagicMasterDanmakuDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicMasterDanmakuDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		392AB9ED1DF166E000C1038D /* MagicMasterDanmakuDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicMasterDanmakuDemoUITests.swift; sourceTree = "<group>"; };
 		392AB9EF1DF166E000C1038D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		392AB9FB1DF166FC00C1038D /* MagicMasterDanmaku.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MagicMasterDanmaku.xcodeproj; path = ../../MagicMasterDanmaku.xcodeproj; sourceTree = "<group>"; };
+		39DE37AA1DF7B6ED00E7F85B /* MagicMasterDanmaku.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MagicMasterDanmaku.xcodeproj; path = ../../../MagicMasterDanmaku.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				392ABA041DF1671B00C1038D /* MagicMasterDanmaku.framework in Frameworks */,
+				39DE37B31DF7B6FA00E7F85B /* MagicMasterDanmaku.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 		392AB9C11DF166DF00C1038D = {
 			isa = PBXGroup;
 			children = (
-				392AB9FB1DF166FC00C1038D /* MagicMasterDanmaku.xcodeproj */,
+				39DE37AA1DF7B6ED00E7F85B /* MagicMasterDanmaku.xcodeproj */,
 				392AB9CC1DF166E000C1038D /* MagicMasterDanmakuDemo */,
 				392AB9E11DF166E000C1038D /* MagicMasterDanmakuDemoTests */,
 				392AB9EC1DF166E000C1038D /* MagicMasterDanmakuDemoUITests */,
@@ -165,11 +165,11 @@
 			path = MagicMasterDanmakuDemoUITests;
 			sourceTree = "<group>";
 		};
-		392AB9FC1DF166FC00C1038D /* Products */ = {
+		39DE37AB1DF7B6ED00E7F85B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				392ABA011DF166FC00C1038D /* MagicMasterDanmaku.framework */,
-				392ABA031DF166FC00C1038D /* MagicMasterDanmakuTests.xctest */,
+				39DE37B01DF7B6ED00E7F85B /* MagicMasterDanmaku.framework */,
+				39DE37B21DF7B6ED00E7F85B /* MagicMasterDanmakuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				392ABA071DF1671B00C1038D /* PBXTargetDependency */,
+				39DE37B61DF7B6FA00E7F85B /* PBXTargetDependency */,
 			);
 			name = MagicMasterDanmakuDemo;
 			productName = MagicMasterDanmakuDemo;
@@ -274,8 +274,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 392AB9FC1DF166FC00C1038D /* Products */;
-					ProjectRef = 392AB9FB1DF166FC00C1038D /* MagicMasterDanmaku.xcodeproj */;
+					ProductGroup = 39DE37AB1DF7B6ED00E7F85B /* Products */;
+					ProjectRef = 39DE37AA1DF7B6ED00E7F85B /* MagicMasterDanmaku.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -288,18 +288,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		392ABA011DF166FC00C1038D /* MagicMasterDanmaku.framework */ = {
+		39DE37B01DF7B6ED00E7F85B /* MagicMasterDanmaku.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MagicMasterDanmaku.framework;
-			remoteRef = 392ABA001DF166FC00C1038D /* PBXContainerItemProxy */;
+			remoteRef = 39DE37AF1DF7B6ED00E7F85B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		392ABA031DF166FC00C1038D /* MagicMasterDanmakuTests.xctest */ = {
+		39DE37B21DF7B6ED00E7F85B /* MagicMasterDanmakuTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = MagicMasterDanmakuTests.xctest;
-			remoteRef = 392ABA021DF166FC00C1038D /* PBXContainerItemProxy */;
+			remoteRef = 39DE37B11DF7B6ED00E7F85B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -370,10 +370,10 @@
 			target = 392AB9C91DF166DF00C1038D /* MagicMasterDanmakuDemo */;
 			targetProxy = 392AB9EA1DF166E000C1038D /* PBXContainerItemProxy */;
 		};
-		392ABA071DF1671B00C1038D /* PBXTargetDependency */ = {
+		39DE37B61DF7B6FA00E7F85B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MagicMasterDanmaku;
-			targetProxy = 392ABA061DF1671B00C1038D /* PBXContainerItemProxy */;
+			targetProxy = 39DE37B51DF7B6FA00E7F85B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
